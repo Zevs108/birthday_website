@@ -44,7 +44,6 @@
     transition-property: background-color;
     transition-duration: 0.5s;
 }
-
 .button__form:hover {
     background-color: #dbf267;
 }

@@ -1,11 +1,11 @@
 html {
     color: var(--primary-text, black);
-    font-size: var(--font-size, 16px);
+    font-size: clamp(10px, 3vw, 18px);
 }
 
 section {
     height: auto;
-    padding: var(--space-8) 0;
+    padding: 4rem 0;
 }
 
 img {
@@ -18,18 +18,19 @@ img {
 .section__hero {
     background-image: url("../public/hero.png");
     background-size: cover;
-    background-clip: border;
+    background-clip: border-box;
     text-align: center;
     height: 100vh;
 
     & .button__hero {
-        margin-bottom: 1%;
+        margin-bottom: 1rem;
     }
     & .emphasize {
-        margin-top: -50px;
+        font-size: 10px;
+        margin-top: -3rem;
     }
     & .text {
-        margin-top: 2%;
+        margin-top: 2rem;
     }
 }
 
@@ -40,11 +41,13 @@ img {
         var(--secondary-bg)
     );
 
-    /*need a media tag ot change the margins*/
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(var(--space-6) * 2);
     & .img__content {
-        width: clamp(350px, calc(40% + 50px), 600px);
-        margin: 0 var(--space-6);
+        max-width: 600px;
+        width: 45%;
     }
 }
 
@@ -62,7 +65,8 @@ img {
 
     /*both have to be the same size for spacing*/
     & .section__text-container {
-        width: clamp(150px, 45%, 500px);
+        max-width: 500px;
+        width: 45%;
         margin: 0 var(--space-6);
     }
     & .img__content {
@@ -273,7 +277,38 @@ img {
 }
 
 @media (max-width: 900px) {
+    .section__hero {
+        height: 80vh;
+    }
 }
 
 @media (max-width: 500px) {
+    .section__hero {
+        height: 60vh;
+
+        & .button__hero {
+            font-size: 1.5rem;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .section__pictures {
+        & .img__content {
+            min-width: 300px;
+            width: 80%;
+        }
+    }
+
+    .section__content-text {
+        & .img__content {
+            display: none;
+        }
+
+        & .section__text-container {
+            min-width: 300px;
+            width: 90%;
+            margin: var(--space-7) 0;
+        }
+    }
 }
