@@ -1,0 +1,10 @@
+{
+  "format_on_save": "on",
+  "prettier": {
+    "allowed": true
+  },
+  "semantic_tokens": "off",
+  "document_folding_ranges": "off",
+  "document_symbols": "off",
+  "disable_ai": true
+}

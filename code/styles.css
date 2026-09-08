@@ -1,4 +1,4 @@
-html{
+html {
     color: var(--primary-text, black);
     font-size: var(--font-size, 16px);
 }
@@ -15,11 +15,10 @@ img {
 }
 
 /* common styling */
-.primary-button{
+.primary-button {
     min-height: 2.5em;
     max-width: 12em;
     width: 100%;
-    margin-bottom: 2%;
 
     font-size: 1.5rem;
     font-weight: 500;
@@ -27,97 +26,95 @@ img {
     background-color: var(--secondary-bg);
     border-radius: 20px;
 }
-.title{
+.title {
     font-size: 9rem;
     font-weight: 500;
 }
-.subtitle{
+.subtitle {
     font-size: 3rem;
     font-weight: 500;
 }
-.text{
+.text {
     font-size: 1.5rem;
-    margin-top: 1rem;
 }
-
-/* Usually inherits font-size from .title or .subtitle */
 .emphasize {
-   font-family: var(--font-emphasis);
-   font-style: italic;
-}
-
-/* images */
-.large-format{
-    max-width: 700px;
-    min-width: 300px;
-    width: 45%;
-    aspect-ratio: 1 / 1;
-}
-.normal-format{
-    width: 45%;
-    min-width: 200px;
-    max-width: 600px;
-    aspect-ratio: 1 / 1;
+    font-family: var(--font-emphasis);
+    font-style: italic;
 }
 
 /* styling per section */
-.hero {
+.section__hero {
     background-image: url("../public/hero.png");
     background-size: cover;
     background-clip: border;
-
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    height: 100vh;
 
-    height: 90vh;
-
+    & .button__hero {
+        margin-bottom: 1%;
+    }
     & .emphasize {
-       margin-top: -50px;
+        margin-top: -50px;
+    }
+    & .text {
+        margin-top: 2%;
     }
 }
 
-.showcase-pictures {
-    background-image: linear-gradient(var(--primary-bg), 90%, var(--secondary-bg));
-    padding-top: var(--space-9);
-    text-align: center;
+.section__pictures {
+    background-image: linear-gradient(
+        var(--primary-bg),
+        90%,
+        var(--secondary-bg)
+    );
 
-    & img.large-format {
+    /*need a media tag ot change the margins*/
+    text-align: center;
+    & .img__content {
+        width: clamp(350px, calc(40% + 50px), 600px);
         margin: 0 var(--space-6);
     }
 }
 
-.first-content-split {
-    background-image: linear-gradient(to top, var(--primary-bg), 80%, var(--secondary-bg));
+.section__content-text {
+    background-image: linear-gradient(
+        to top,
+        var(--primary-bg),
+        80%,
+        var(--secondary-bg)
+    );
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    & .text-container{
-        width: 45%;
-        max-width: 600px;
+
+    /*both have to be the same size for spacing*/
+    & .section__text-container {
+        width: clamp(150px, 45%, 500px);
         margin: 0 var(--space-6);
     }
-    & img.normal-format {
+    & .img__content {
+        width: clamp(350px, 45%, 500px);
         margin: 0 var(--space-6);
     }
 }
 
-.second-content-split{
-    background-image: linear-gradient(var(--primary-bg) 0px 2px, transparent 4px);
+.section__content-grid {
+    background-image: linear-gradient(
+        var(--primary-bg) 0px 2px,
+        transparent 4px
+    );
     background-color: var(--bg-lighter-3);
 
-    & .subtitle{
+    & .subtitle {
         text-align: center;
     }
-    & .emphasize{
+    & .emphasize {
         margin-top: -20px;
         margin-bottom: var(--space-7);
     }
 
-    & .grid-container{
+    & .div__grid-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         justify-content: space-around;
@@ -139,49 +136,52 @@ img {
         justify-content: center;
         align-items: center;
         background-color: var(--secondary-bg);
-
     }
 
-    & .grid-item{
+    & .article__grid-item {
         width: 85%;
         position: relative;
     }
-
-    & .grid-image{
+    & .article__image {
         width: 100%;
         aspect-ratio: 564 / 627;
     }
-
-    & p {
+    & .article__text {
         margin-top: 1rem;
     }
 }
 
-.third-content-split{
+.section__content-when {
     background-color: var(--bg-lighter-2);
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    & .text-container{
+
+    & .text-container {
         width: 45%;
         max-width: 600px;
         align-self: center;
         margin: 0 var(--space-6);
     }
-    & img.normal-format {
+    & .img__content {
+        width: clamp(350px, 45%, 500px);
         margin: 0 var(--space-6);
     }
 }
 
-.fourth-content-split{
-    background-image: linear-gradient(var(--primary-bg), 90%, var(--secondary-bg));
+.section__content-times {
+    background-image: linear-gradient(
+        var(--primary-bg),
+        90%,
+        var(--secondary-bg)
+    );
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
 
-    & .content-container{
+    & .content-container {
         width: 45%;
         max-width: 600px;
         margin: 0 var(--space-7);
@@ -189,7 +189,7 @@ img {
         font-size: 1.5rem;
     }
 
-    & .grid-container{
+    & .grid-container {
         display: grid;
         grid-template-columns: 125px 1fr;
         gap: 20px;
@@ -198,7 +198,8 @@ img {
         margin: var(--space-7) 0;
     }
 
-    & img.normal-format {
+    & .img__content {
+        width: clamp(350px, 45%, 500px);
         margin: 0 var(--space-6);
     }
 
@@ -215,7 +216,7 @@ img {
     }
 }
 
-.fifth-content-split{
+.section__footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -227,7 +228,14 @@ img {
     position: relative;
     height: 90vh;
 
-    background-image: linear-gradient(to top, var(--secondary-bg), 15%, var(--primary-bg), 90%, var(--secondary-bg));
+    background-image: linear-gradient(
+        to top,
+        var(--secondary-bg),
+        15%,
+        var(--primary-bg),
+        90%,
+        var(--secondary-bg)
+    );
 
     & div {
         grid-area: text;
@@ -251,13 +259,13 @@ img {
             align-items: center;
             gap: var(--space-7);
 
-            & li{
+            & li {
                 display: flex;
                 flex-direction: column;
                 width: 80%;
             }
 
-            & input{
+            & input {
                 border: 2px black solid;
                 border-radius: 10px;
                 height: 10ch;
@@ -272,15 +280,15 @@ img {
     }
 }
 
-@media (max-width: 900px){
-
+@media (max-width: 900px) {
 }
-@media (max-width: 500px){
+
+@media (max-width: 500px) {
     html {
         font-size: 10px;
     }
 
-    section{
+    section {
         padding: var(--space-4) 0;
     }
 
@@ -288,7 +296,7 @@ img {
         height: 80vh;
     }
 
-    .showcase-pictures img.large-format{
+    .showcase-pictures img.large-format {
         margin: var(--space-5) 0;
     }
 }
