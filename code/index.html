@@ -12,7 +12,7 @@
     </head>
     <body>
         <section class="section__hero">
-            <button class="button__hero primary-button">Join the celebration</button>
+            <button class="button__hero primary-button"><a href="#form">Join the celebration</a></button>
             <h1 class="title">Ilya is<div class="emphasize">Eighteen</div></h1>
             <p class="text">And he decided to make a cool website to invite his friends to his birthday!</p>
         </section>
@@ -79,23 +79,25 @@
             <img class="img__content" src="../public/hero.png">
         </section>
         <section class="section__footer">
-            <div>
-                <h2>Got questions?</h2>
-                <p>Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+            <div class="footer__text-container">
+                <h2 class="subtitle">Got questions?</h2>
+                <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
             </div>
-            <form>
-                <ol>
-                    <li>
+            <form class="footer__form" id="form">
+                <ol class="form__container">
+                    <li class="form__item">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name">
+                        <input class="form__input" type="text" name="name" id="name" required>
                     </li>
-                    <li>
+                    <li class="form__item">
                         <label for="email">Email address</label>
-                        <input type="email" name="email" id="email">
+                        <input class="form__input" type="email" name="email" id="email" required>
                     </li>
-                    <li><textarea>Some text here</textarea></li>
-                    <li>
-                        <button type="button">Submit</button>
+                    <li class="form__item">
+                        <label for="comments">Comments</label>
+                        <textarea id="comments" class="form__input form__textarea"></textarea></li>
+                    <li class="form__item">
+                        <button type="reset" class="button__form">Submit</button>
                         <p class="subscript"></p>
                     </li>
                 </ol>

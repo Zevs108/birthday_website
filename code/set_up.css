@@ -3,6 +3,66 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    & a {
+        text-decoration: none;
+        font-size: inherit;
+        color: inherit;
+    }
+}
+
+/* common styling */
+.button__hero {
+    min-height: 2.5em;
+    max-width: 12em;
+    width: 100%;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    background-color: var(--secondary-bg);
+    border: 1px solid black;
+    border-radius: 20px;
+
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+}
+.button__hero:hover {
+    opacity: 0.8;
+}
+
+.button__form {
+    min-height: 2.5em;
+    max-width: 6em;
+    width: 100%;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: var(--secondary-bg);
+
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.button__form:hover {
+    background-color: #dbf267;
+}
+
+.title {
+    font-size: 9rem;
+    font-weight: 500;
+}
+.subtitle {
+    font-size: 3rem;
+    font-weight: 500;
+}
+.text {
+    font-size: 1.5rem;
+}
+.emphasize {
+    font-family: var(--font-emphasis);
+    font-style: italic;
 }
 
 /* Variables */

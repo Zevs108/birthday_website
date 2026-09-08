@@ -14,34 +14,6 @@ img {
     border-radius: 20px;
 }
 
-/* common styling */
-.primary-button {
-    min-height: 2.5em;
-    max-width: 12em;
-    width: 100%;
-
-    font-size: 1.5rem;
-    font-weight: 500;
-
-    background-color: var(--secondary-bg);
-    border-radius: 20px;
-}
-.title {
-    font-size: 9rem;
-    font-weight: 500;
-}
-.subtitle {
-    font-size: 3rem;
-    font-weight: 500;
-}
-.text {
-    font-size: 1.5rem;
-}
-.emphasize {
-    font-family: var(--font-emphasis);
-    font-style: italic;
-}
-
 /* styling per section */
 .section__hero {
     background-image: url("../public/hero.png");
@@ -226,7 +198,7 @@ img {
     justify-items: center;
 
     position: relative;
-    height: 90vh;
+    height: 100vh;
 
     background-image: linear-gradient(
         to top,
@@ -237,20 +209,21 @@ img {
         var(--secondary-bg)
     );
 
-    & div {
+    & .footer__text-container {
         grid-area: text;
         width: 85%;
     }
-
-    & form {
+    & .footer__text {
+        margin-top: 1em;
+    }
+    & .footer__form {
         grid-area: form;
         width: 70%;
 
         background-color: var(--secondary-bg);
         border-radius: 30px;
 
-        font-size: 0.9rem;
-        & ol {
+        & .form__container {
             list-style-type: none;
             margin-top: var(--space-7);
 
@@ -259,18 +232,37 @@ img {
             align-items: center;
             gap: var(--space-7);
 
-            & li {
-                display: flex;
-                flex-direction: column;
-                width: 80%;
-            }
+            appearance: none;
+            accent-color: var(--secondary-bg);
+        }
 
-            & input {
-                border: 2px black solid;
-                border-radius: 10px;
-                height: 10ch;
-                background-color: transparent;
+        .form__item {
+            & > * {
+                display: block;
+                width: 100%;
             }
+            width: 75%;
+        }
+
+        & .form__input {
+            border: 2px black solid;
+            border-radius: 10px;
+
+            padding: 0.5rem 0.2rem;
+            background-color: transparent;
+            transition: background-color 0.5s;
+
+            font-size: 0.8rem;
+            font-family: inherit;
+        }
+
+        & .form__input:focus {
+            background-color: #dbf267;
+        }
+
+        & .form__textarea {
+            height: 6rem;
+            resize: none;
         }
     }
 
@@ -284,19 +276,4 @@ img {
 }
 
 @media (max-width: 500px) {
-    html {
-        font-size: 10px;
-    }
-
-    section {
-        padding: var(--space-4) 0;
-    }
-
-    .hero {
-        height: 80vh;
-    }
-
-    .showcase-pictures img.large-format {
-        margin: var(--space-5) 0;
-    }
 }
