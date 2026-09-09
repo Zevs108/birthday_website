@@ -59,8 +59,12 @@
 .text {
     font-size: 1.5rem;
 }
+.small-text{
+    font-size: 1.2rem;
+}
 .emphasize {
     font-family: var(--font-emphasis);
+    font-size: inherit;
     font-style: italic;
 }
 
@@ -70,7 +74,7 @@
     --secondary-bg: #e6ff6d;
 
     --primary-text: #23270d;
-    --font-size: 18px;
+    --font-size: 16px;
 
     --font-heading: "Space Grotesk", sans-serif;
     --font-emphasis: "Lora", sans-serif;
