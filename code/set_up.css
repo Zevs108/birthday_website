@@ -52,14 +52,14 @@
     font-weight: 500;
 }
 .subtitle {
-    font-size: var(--fs-lg);
+    font-size: calc(var(--fs-lg) + 0.35rem);
     font-weight: 500;
 }
 .text {
     font-size: var(--fs-md);
 }
 .small-text {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-base);
 }
 .emphasize {
     font-family: var(--ff-lora);
@@ -87,11 +87,11 @@
     --s-3xl: 4rem;
     --s-4xl: 6rem;
 
-    --fs-sm: clamp(0.9rem, 0.1vi + 0.87rem, 1rem);
+    --fs-sm: clamp(0.87rem, 0.14vi + 0.83rem, 1rem);
     --fs-base: clamp(1.13rem, 0.38vi + 1.03rem, 1.5rem);
-    --fs-md: clamp(1.41rem, 0.85vi + 1.19rem, 2.25rem);
-    --fs-lg: clamp(1.76rem, 1.64vi + 1.35rem, 3.38rem);
-    --fs-xl: clamp(2.2rem, 2.9vi + 1.47rem, 5.06rem);
-    --fs-xxl: clamp(2.75rem, 4.91vi + 1.52rem, 7.59rem);
-    --fs-xxxl: clamp(3.43rem, 8.06vi + 1.42rem, 11.39rem);
+    --fs-md: clamp(1.46rem, 0.8vi + 1.26rem, 2.25rem);
+    --fs-lg: clamp(1.9rem, 1.49vi + 1.53rem, 3.38rem);
+    --fs-xl: clamp(2.47rem, 2.62vi + 1.82rem, 5.06rem);
+    --fs-xxl: clamp(3.21rem, 4.44vi + 2.1rem, 7.59rem);
+    --fs-xxxl: clamp(4.18rem, 7.3vi + 2.35rem, 11.39rem);
 }

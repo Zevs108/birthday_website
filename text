@@ -1,595 +1,736 @@
-diff --git a/code/index.html b/code/index.html
-index 0d02495..d88f677 100644
---- a/code/index.html
-+++ b/code/index.html
-@@ -29,7 +29,7 @@
-         </section>
-         <section class="section__content-grid">
-             <h2 class="subtitle">Why we love<div class="emphasize">Ilya</div></h2>
--            <div class="div__grid-container">
-+            <div class="div__grid-container small-text">
-                 <article class="article__grid-item">
-                     <span class="icon">1</span>
-                     <img class="article__image" src="../public/pic4.png">
-@@ -54,7 +54,7 @@
-         </section>
-         <section class="section__content-when">
-             <img class="img__content" src="../public/pic3.png" alr="Man having a lot of fun">
--            <div class="text-container">
-+            <div class="text-container text">
-                 <h2 class="subtitle">What's happening<div class="emphasize">when?</div></h2>
-                 <p><strong>When:</strong> Saturday, September 12, 2026</p>
-                 <p><strong>Time:</strong> 10:00 AM – 8:00 PM EST</p>
-@@ -65,7 +65,7 @@
-         <section class="section__content-times">
-             <div class="content-container">
-                 <h2 class="subtitle">Good times<div class="emphasize">guide<div/></h2>
--                <ol class="grid-container">
-+                <ol class="grid-container text">
-                     <li class="time">6:00 PM</li>
-                     <li>Virtual door open</li>
-                     <li class="time">6:15 PM</li>
-@@ -79,7 +79,7 @@
-             <img class="img__content" src="../public/hero.png">
-         </section>
-         <section class="section__footer">
--            <div class="footer__text-container">
-+            <div class="footer__text-container small-text">
-                 <h2 class="subtitle">Got questions?</h2>
-                 <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
-             </div>
-@@ -103,7 +103,7 @@
-                 </ol>
-             </form>
-             <footer>
--                some stuff here
-+                some stuff here xD
-             </footer>
-         </section>
-     </body>
 diff --git a/code/set_up.css b/code/set_up.css
-index 58ff929..be1fbc9 100644
+index 0543c42..5cd0790 100644
 --- a/code/set_up.css
 +++ b/code/set_up.css
-@@ -59,8 +59,12 @@
+@@ -52,14 +52,14 @@
+     font-weight: 500;
+ }
+ .subtitle {
+-    font-size: var(--fs-lg);
++    font-size: calc(var(--fs-lg) + 0.35rem);
+     font-weight: 500;
+ }
  .text {
-     font-size: 1.5rem;
+     font-size: var(--fs-md);
  }
-+.small-text{
-+    font-size: 1.2rem;
-+}
+ .small-text {
+-    font-size: var(--fs-xl);
++    font-size: var(--fs-base);
+ }
  .emphasize {
-     font-family: var(--font-emphasis);
-+    font-size: inherit;
-     font-style: italic;
+     font-family: var(--ff-lora);
+@@ -87,11 +87,11 @@
+     --s-3xl: 4rem;
+     --s-4xl: 6rem;
+ 
+-    --fs-sm: clamp(0.9rem, 0.1vi + 0.87rem, 1rem);
++    --fs-sm: clamp(0.87rem, 0.14vi + 0.83rem, 1rem);
+     --fs-base: clamp(1.13rem, 0.38vi + 1.03rem, 1.5rem);
+-    --fs-md: clamp(1.41rem, 0.85vi + 1.19rem, 2.25rem);
+-    --fs-lg: clamp(1.76rem, 1.64vi + 1.35rem, 3.38rem);
+-    --fs-xl: clamp(2.2rem, 2.9vi + 1.47rem, 5.06rem);
+-    --fs-xxl: clamp(2.75rem, 4.91vi + 1.52rem, 7.59rem);
+-    --fs-xxxl: clamp(3.43rem, 8.06vi + 1.42rem, 11.39rem);
++    --fs-md: clamp(1.46rem, 0.8vi + 1.26rem, 2.25rem);
++    --fs-lg: clamp(1.9rem, 1.49vi + 1.53rem, 3.38rem);
++    --fs-xl: clamp(2.47rem, 2.62vi + 1.82rem, 5.06rem);
++    --fs-xxl: clamp(3.21rem, 4.44vi + 2.1rem, 7.59rem);
++    --fs-xxxl: clamp(4.18rem, 7.3vi + 2.35rem, 11.39rem);
  }
- 
-@@ -70,7 +74,7 @@
-     --secondary-bg: #e6ff6d;
- 
-     --primary-text: #23270d;
--    --font-size: 18px;
-+    --font-size: 16px;
- 
-     --font-heading: "Space Grotesk", sans-serif;
-     --font-emphasis: "Lora", sans-serif;
 diff --git a/code/styles.css b/code/styles.css
-index 3a12cd9..e044ab3 100644
+index dfcc4b8..e29b6a4 100644
 --- a/code/styles.css
 +++ b/code/styles.css
-@@ -1,6 +1,6 @@
- html {
-     color: var(--primary-text, black);
--    font-size: clamp(10px, 3vw, 18px);
-+    font-size: clamp(14px, 2vw, 18px);
- }
+@@ -27,29 +27,29 @@ img {
+     flex-direction: column;
  
- section {
-@@ -26,7 +26,6 @@ img {
-         margin-bottom: 1rem;
+     & .button__hero {
+-        margin-bottom: 1rem;
++        margin-bottom: var(s-base);
      }
      & .emphasize {
--        font-size: 10px;
-         margin-top: -3rem;
+-        margin-top: -2.5rem;
++        margin-top: calc((var(--s-xl) + 0.5rem) * -1);
      }
-     & .text {
-@@ -67,11 +66,11 @@ img {
-     & .section__text-container {
-         max-width: 500px;
+     & p.text {
+-        margin-top: 2rem;
++        margin-top: var(--s-xl);
+     }
+ }
+ 
+ .section__pictures {
+     background-image: linear-gradient(
+-        var(--primary-bg),
+-        90%,
+-        var(--secondary-bg)
++        var(--primary-bg) 0%,
++        var(--secondary-bg) 90%
+     );
+ 
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+-    gap: calc(var(--space-6) * 2);
++    gap: var(--s-2xl);
++
+     & .img__content {
+-        max-width: 600px;
++        max-width: 800px;
          width: 45%;
--        margin: 0 var(--space-6);
-+        margin: 0 1.5rem;
+     }
+ }
+@@ -68,13 +68,13 @@ img {
+ 
+     /*both have to be the same size for spacing*/
+     & .section__text-container {
+-        max-width: 500px;
++        max-width: 800px;
+         width: 45%;
+-        margin: 0 1.5rem;
      }
      & .img__content {
-         width: clamp(350px, 45%, 500px);
--        margin: 0 var(--space-6);
-+        margin: 0 1.5rem;
+-        width: clamp(350px, 45%, 500px);
+-        margin: 0 1.5rem;
++        max-width: 800px;
++        width: 45%;
++        margin-left: var(--s-2xl);
      }
  }
  
-@@ -87,7 +86,7 @@ img {
+@@ -87,10 +87,10 @@ img {
+ 
+     & .subtitle {
+         text-align: center;
++        margin-bottom: var(--s-xl);
      }
      & .emphasize {
-         margin-top: -20px;
--        margin-bottom: var(--space-7);
-+        margin-bottom: 2rem;
+-        margin-top: -20px;
+-        margin-bottom: 2rem;
++        margin-top: calc(var(--s-base) * -1);
      }
  
      & .div__grid-container {
-@@ -96,7 +95,7 @@ img {
-         justify-content: space-around;
-         align-items: flex-start;
-         justify-items: center;
--        gap: 5px;
-+        gap: 1rem;
-     }
- 
-     & .icon {
-@@ -136,13 +135,17 @@ img {
- 
-     & .text-container {
-         width: 45%;
--        max-width: 600px;
-+        max-width: 500px;
-         align-self: center;
--        margin: 0 var(--space-6);
-+        margin: 0 1.5rem;
-+
-+        & > p {
-+            margin-top: 1rem;
-+        }
-     }
-     & .img__content {
-         width: clamp(350px, 45%, 500px);
--        margin: 0 var(--space-6);
-+        margin: 0 1.5rem;
-     }
- }
- 
-@@ -159,10 +162,8 @@ img {
- 
-     & .content-container {
-         width: 45%;
--        max-width: 600px;
--        margin: 0 var(--space-7);
--
--        font-size: 1.5rem;
-+        max-width: 500px;
-+        margin: 0 1.5rem;
-     }
- 
-     & .grid-container {
-@@ -171,21 +172,25 @@ img {
-         gap: 20px;
- 
-         list-style-type: none;
--        margin: var(--space-7) 0;
-+        margin-top: 2rem;
-+
-+        & > li {
-+            display: flex;
-+            align-items: center;
-+        }
-     }
- 
-     & .img__content {
-         width: clamp(350px, 45%, 500px);
--        margin: 0 var(--space-6);
-+        margin: 0 1.5rem;
-     }
- 
-     & .time {
-         width: 125px;
-         height: 40px;
-+        font-size: calc(1.5rem - 0.5vw);
- 
--        display: flex;
-         justify-content: center;
--        align-items: center;
- 
-         border-radius: 25%;
-         background-color: var(--secondary-bg);
-@@ -202,7 +207,7 @@ img {
-     justify-items: center;
- 
-     position: relative;
--    height: 100vh;
-+    height: auto;
- 
-     background-image: linear-gradient(
-         to top,
-@@ -229,12 +234,11 @@ img {
- 
-         & .form__container {
-             list-style-type: none;
--            margin-top: var(--space-7);
-+            margin-top: 2rem;
- 
-             display: flex;
-             flex-direction: column;
-             align-items: center;
--            gap: var(--space-7);
- 
-             appearance: none;
-             accent-color: var(--secondary-bg);
-@@ -246,6 +250,7 @@ img {
-                 width: 100%;
-             }
-             width: 75%;
-+            margin: 1rem 0;
-         }
- 
-         & .form__input {
-@@ -276,21 +281,24 @@ img {
-     }
- }
- 
--@media (max-width: 900px) {
--    .section__hero {
--        height: 80vh;
--    }
--}
--
- @media (max-width: 500px) {
-     .section__hero {
--        height: 60vh;
-+        height: 80vh;
- 
-         & .button__hero {
-             font-size: 1.5rem;
-             margin-top: 4rem;
-             margin-bottom: 1rem;
-         }
-+
-+        & .emphasize {
-+            font-size: 6rem;
-+            margin-top: -3rem;
-+        }
-+
-+        & .title {
-+            font-size: 6rem;
-+        }
-     }
- 
-     .section__pictures {
-@@ -308,7 +316,69 @@ img {
+@@ -308,18 +308,18 @@ img {
          & .section__text-container {
              min-width: 300px;
              width: 90%;
--            margin: var(--space-7) 0;
-+            margin: 0;
-+        }
-+    }
-+
-+    .section__content-grid {
-+        & .article__text {
-+            font-size: 1.5rem;
-+        }
-+
-+        & .div__grid-container {
-+            gap: 4rem;
-+        }
-+    }
-+
-+    .section__content-when {
-+        & .text-container {
-+            width: 85%;
-+            min-width: 300px;
-+            align-self: center;
-+            margin: 0;
-+            font-size: 1.5rem;
-+
-+            & p {
-+                margin-top: 1rem;
-+            }
-+        }
-+
-+        & .img__content {
-+            display: none;
-+        }
-+    }
-+
-+    .section__content-times {
-+        & .img__content {
-+            display: none;
-+        }
-+
-+        & .content-container {
-+            min-width: 300px;
-+            width: 85%;
-+            margin: 0;
-+        }
-+
-+        /*& .time{
-+            font-size: 1.5rem;
-+        }*/
-+    }
-+
-+    .section__footer {
-+        grid-template-columns: 1fr;
-+        grid-template-rows: 1fr 1fr 1fr;
-+        grid-template-areas:
-+            "text"
-+            "form"
-+            "form";
-+
-+        & .footer__form {
-+            margin-top: 2rem;
-+            width: 85%;
-+            min-width: 300px;
-+        }
-+        & footer {
-+            display: none;
+-            margin: 0;
          }
      }
- }
+ 
+     .section__content-grid {
+-        & .article__text {
+-            font-size: 1.5rem;
+-        }
+-
+         & .div__grid-container {
+             gap: 4rem;
+         }
++
++        & .article__grid-item {
++            width: 75%;
++            position: relative;
++        }
+     }
+ 
+     .section__content-when {
 diff --git a/text b/text
-index e9f78b6..df0b927 100644
+index a53cc87..e69de29 100644
 --- a/text
 +++ b/text
-@@ -1,265 +0,0 @@
+@@ -1,595 +0,0 @@
 -diff --git a/code/index.html b/code/index.html
--index 988f256..0d02495 100644
+-index 0d02495..d88f677 100644
 ---- a/code/index.html
 -+++ b/code/index.html
--@@ -12,7 +12,7 @@
--     </head>
--     <body>
--         <section class="section__hero">
---            <button class="button__hero primary-button">Join the celebration</button>
--+            <button class="button__hero primary-button"><a href="#form">Join the celebration</a></button>
--             <h1 class="title">Ilya is<div class="emphasize">Eighteen</div></h1>
--             <p class="text">And he decided to make a cool website to invite his friends to his birthday!</p>
+-@@ -29,7 +29,7 @@
 -         </section>
--@@ -79,23 +79,25 @@
+-         <section class="section__content-grid">
+-             <h2 class="subtitle">Why we love<div class="emphasize">Ilya</div></h2>
+--            <div class="div__grid-container">
+-+            <div class="div__grid-container small-text">
+-                 <article class="article__grid-item">
+-                     <span class="icon">1</span>
+-                     <img class="article__image" src="../public/pic4.png">
+-@@ -54,7 +54,7 @@
+-         </section>
+-         <section class="section__content-when">
+-             <img class="img__content" src="../public/pic3.png" alr="Man having a lot of fun">
+--            <div class="text-container">
+-+            <div class="text-container text">
+-                 <h2 class="subtitle">What's happening<div class="emphasize">when?</div></h2>
+-                 <p><strong>When:</strong> Saturday, September 12, 2026</p>
+-                 <p><strong>Time:</strong> 10:00 AM – 8:00 PM EST</p>
+-@@ -65,7 +65,7 @@
+-         <section class="section__content-times">
+-             <div class="content-container">
+-                 <h2 class="subtitle">Good times<div class="emphasize">guide<div/></h2>
+--                <ol class="grid-container">
+-+                <ol class="grid-container text">
+-                     <li class="time">6:00 PM</li>
+-                     <li>Virtual door open</li>
+-                     <li class="time">6:15 PM</li>
+-@@ -79,7 +79,7 @@
 -             <img class="img__content" src="../public/hero.png">
 -         </section>
 -         <section class="section__footer">
---            <div>
---                <h2>Got questions?</h2>
---                <p>Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
--+            <div class="footer__text-container">
--+                <h2 class="subtitle">Got questions?</h2>
--+                <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+--            <div class="footer__text-container">
+-+            <div class="footer__text-container small-text">
+-                 <h2 class="subtitle">Got questions?</h2>
+-                 <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
 -             </div>
---            <form>
---                <ol>
---                    <li>
--+            <form class="footer__form" id="form">
--+                <ol class="form__container">
--+                    <li class="form__item">
--                         <label for="name">Name</label>
---                        <input type="text" name="name" id="name">
--+                        <input class="form__input" type="text" name="name" id="name" required>
--                     </li>
---                    <li>
--+                    <li class="form__item">
--                         <label for="email">Email address</label>
---                        <input type="email" name="email" id="email">
--+                        <input class="form__input" type="email" name="email" id="email" required>
--                     </li>
---                    <li><textarea>Some text here</textarea></li>
---                    <li>
---                        <button type="button">Submit</button>
--+                    <li class="form__item">
--+                        <label for="comments">Comments</label>
--+                        <textarea id="comments" class="form__input form__textarea"></textarea></li>
--+                    <li class="form__item">
--+                        <button type="reset" class="button__form">Submit</button>
--                         <p class="subscript"></p>
--                     </li>
+-@@ -103,7 +103,7 @@
 -                 </ol>
+-             </form>
+-             <footer>
+--                some stuff here
+-+                some stuff here xD
+-             </footer>
+-         </section>
+-     </body>
 -diff --git a/code/set_up.css b/code/set_up.css
--index 3b0dbcd..3f8fe16 100644
+-index 58ff929..be1fbc9 100644
 ---- a/code/set_up.css
 -+++ b/code/set_up.css
--@@ -3,6 +3,66 @@
--     box-sizing: border-box;
--     margin: 0;
--     padding: 0;
--+
--+    & a {
--+        text-decoration: none;
--+        font-size: inherit;
--+        color: inherit;
--+    }
--+}
--+
--+/* common styling */
--+.button__hero {
--+    min-height: 2.5em;
--+    max-width: 12em;
--+    width: 100%;
--+
+-@@ -59,8 +59,12 @@
+- .text {
+-     font-size: 1.5rem;
+- }
+-+.small-text{
 -+    font-size: 1.2rem;
--+    font-weight: 500;
--+
--+    background-color: var(--secondary-bg);
--+    border: 1px solid black;
--+    border-radius: 20px;
--+
--+    opacity: 1;
--+    transition-property: opacity;
--+    transition-duration: 0.2s;
 -+}
--+.button__hero:hover {
--+    opacity: 0.8;
--+}
--+
--+.button__form {
--+    min-height: 2.5em;
--+    max-width: 6em;
--+    width: 100%;
--+
--+    border: 2px solid black;
--+    border-radius: 10px;
--+    background-color: var(--secondary-bg);
--+
--+    transition-property: background-color;
--+    transition-duration: 0.5s;
--+}
--+
--+.button__form:hover {
--+    background-color: #dbf267;
--+}
--+
--+.title {
--+    font-size: 9rem;
--+    font-weight: 500;
--+}
--+.subtitle {
--+    font-size: 3rem;
--+    font-weight: 500;
--+}
--+.text {
--+    font-size: 1.5rem;
--+}
--+.emphasize {
--+    font-family: var(--font-emphasis);
--+    font-style: italic;
+- .emphasize {
+-     font-family: var(--font-emphasis);
+-+    font-size: inherit;
+-     font-style: italic;
 - }
 - 
-- /* Variables */
+-@@ -70,7 +74,7 @@
+-     --secondary-bg: #e6ff6d;
+- 
+-     --primary-text: #23270d;
+--    --font-size: 18px;
+-+    --font-size: 16px;
+- 
+-     --font-heading: "Space Grotesk", sans-serif;
+-     --font-emphasis: "Lora", sans-serif;
 -diff --git a/code/styles.css b/code/styles.css
--index a4284db..759e917 100644
+-index 3a12cd9..e044ab3 100644
 ---- a/code/styles.css
 -+++ b/code/styles.css
--@@ -14,34 +14,6 @@ img {
--     border-radius: 20px;
+-@@ -1,6 +1,6 @@
+- html {
+-     color: var(--primary-text, black);
+--    font-size: clamp(10px, 3vw, 18px);
+-+    font-size: clamp(14px, 2vw, 18px);
 - }
 - 
---/* common styling */
---.primary-button {
---    min-height: 2.5em;
---    max-width: 12em;
---    width: 100%;
+- section {
+-@@ -26,7 +26,6 @@ img {
+-         margin-bottom: 1rem;
+-     }
+-     & .emphasize {
+--        font-size: 10px;
+-         margin-top: -3rem;
+-     }
+-     & .text {
+-@@ -67,11 +66,11 @@ img {
+-     & .section__text-container {
+-         max-width: 500px;
+-         width: 45%;
+--        margin: 0 var(--space-6);
+-+        margin: 0 1.5rem;
+-     }
+-     & .img__content {
+-         width: clamp(350px, 45%, 500px);
+--        margin: 0 var(--space-6);
+-+        margin: 0 1.5rem;
+-     }
+- }
+- 
+-@@ -87,7 +86,7 @@ img {
+-     }
+-     & .emphasize {
+-         margin-top: -20px;
+--        margin-bottom: var(--space-7);
+-+        margin-bottom: 2rem;
+-     }
+- 
+-     & .div__grid-container {
+-@@ -96,7 +95,7 @@ img {
+-         justify-content: space-around;
+-         align-items: flex-start;
+-         justify-items: center;
+--        gap: 5px;
+-+        gap: 1rem;
+-     }
+- 
+-     & .icon {
+-@@ -136,13 +135,17 @@ img {
+- 
+-     & .text-container {
+-         width: 45%;
+--        max-width: 600px;
+-+        max-width: 500px;
+-         align-self: center;
+--        margin: 0 var(--space-6);
+-+        margin: 0 1.5rem;
+-+
+-+        & > p {
+-+            margin-top: 1rem;
+-+        }
+-     }
+-     & .img__content {
+-         width: clamp(350px, 45%, 500px);
+--        margin: 0 var(--space-6);
+-+        margin: 0 1.5rem;
+-     }
+- }
+- 
+-@@ -159,10 +162,8 @@ img {
+- 
+-     & .content-container {
+-         width: 45%;
+--        max-width: 600px;
+--        margin: 0 var(--space-7);
 --
---    font-size: 1.5rem;
---    font-weight: 500;
---
---    background-color: var(--secondary-bg);
---    border-radius: 20px;
---}
---.title {
---    font-size: 9rem;
---    font-weight: 500;
---}
---.subtitle {
---    font-size: 3rem;
---    font-weight: 500;
---}
---.text {
---    font-size: 1.5rem;
---}
---.emphasize {
---    font-family: var(--font-emphasis);
---    font-style: italic;
---}
---
-- /* styling per section */
-- .section__hero {
--     background-image: url("../public/hero.png");
--@@ -226,7 +198,7 @@ img {
+--        font-size: 1.5rem;
+-+        max-width: 500px;
+-+        margin: 0 1.5rem;
+-     }
+- 
+-     & .grid-container {
+-@@ -171,21 +172,25 @@ img {
+-         gap: 20px;
+- 
+-         list-style-type: none;
+--        margin: var(--space-7) 0;
+-+        margin-top: 2rem;
+-+
+-+        & > li {
+-+            display: flex;
+-+            align-items: center;
+-+        }
+-     }
+- 
+-     & .img__content {
+-         width: clamp(350px, 45%, 500px);
+--        margin: 0 var(--space-6);
+-+        margin: 0 1.5rem;
+-     }
+- 
+-     & .time {
+-         width: 125px;
+-         height: 40px;
+-+        font-size: calc(1.5rem - 0.5vw);
+- 
+--        display: flex;
+-         justify-content: center;
+--        align-items: center;
+- 
+-         border-radius: 25%;
+-         background-color: var(--secondary-bg);
+-@@ -202,7 +207,7 @@ img {
 -     justify-items: center;
 - 
 -     position: relative;
---    height: 90vh;
--+    height: 100vh;
+--    height: 100vh;
+-+    height: auto;
 - 
 -     background-image: linear-gradient(
 -         to top,
--@@ -237,20 +209,21 @@ img {
--         var(--secondary-bg)
--     );
+-@@ -229,12 +234,11 @@ img {
 - 
---    & div {
--+    & .footer__text-container {
--         grid-area: text;
--         width: 85%;
--     }
---
---    & form {
--+    & .footer__text {
--+        margin-top: 1em;
--+    }
--+    & .footer__form {
--         grid-area: form;
--         width: 70%;
-- 
--         background-color: var(--secondary-bg);
--         border-radius: 30px;
-- 
---        font-size: 0.9rem;
---        & ol {
--+        & .form__container {
+-         & .form__container {
 -             list-style-type: none;
--             margin-top: var(--space-7);
+--            margin-top: var(--space-7);
+-+            margin-top: 2rem;
 - 
--@@ -259,18 +232,37 @@ img {
+-             display: flex;
+-             flex-direction: column;
 -             align-items: center;
--             gap: var(--space-7);
+--            gap: var(--space-7);
 - 
---            & li {
---                display: flex;
---                flex-direction: column;
---                width: 80%;
---            }
--+            appearance: none;
--+            accent-color: var(--secondary-bg);
--+        }
-- 
---            & input {
---                border: 2px black solid;
---                border-radius: 10px;
---                height: 10ch;
---                background-color: transparent;
--+        .form__item {
--+            & > * {
--+                display: block;
--+                width: 100%;
+-             appearance: none;
+-             accent-color: var(--secondary-bg);
+-@@ -246,6 +250,7 @@ img {
+-                 width: 100%;
 -             }
--+            width: 75%;
--+        }
--+
--+        & .form__input {
--+            border: 2px black solid;
--+            border-radius: 10px;
--+
--+            padding: 0.5rem 0.2rem;
--+            background-color: transparent;
--+            transition: background-color 0.5s;
--+
--+            font-size: 0.8rem;
--+            font-family: inherit;
--+        }
--+
--+        & .form__input:focus {
--+            background-color: #dbf267;
--+        }
--+
--+        & .form__textarea {
--+            height: 6rem;
--+            resize: none;
+-             width: 75%;
+-+            margin: 1rem 0;
 -         }
--     }
 - 
--@@ -284,19 +276,4 @@ img {
+-         & .form__input {
+-@@ -276,21 +281,24 @@ img {
+-     }
 - }
 - 
-- @media (max-width: 500px) {
---    html {
---        font-size: 10px;
---    }
---
---    section {
---        padding: var(--space-4) 0;
---    }
---
---    .hero {
+--@media (max-width: 900px) {
+--    .section__hero {
 --        height: 80vh;
 --    }
+--}
 --
---    .showcase-pictures img.large-format {
---        margin: var(--space-5) 0;
---    }
+- @media (max-width: 500px) {
+-     .section__hero {
+--        height: 60vh;
+-+        height: 80vh;
+- 
+-         & .button__hero {
+-             font-size: 1.5rem;
+-             margin-top: 4rem;
+-             margin-bottom: 1rem;
+-         }
+-+
+-+        & .emphasize {
+-+            font-size: 6rem;
+-+            margin-top: -3rem;
+-+        }
+-+
+-+        & .title {
+-+            font-size: 6rem;
+-+        }
+-     }
+- 
+-     .section__pictures {
+-@@ -308,7 +316,69 @@ img {
+-         & .section__text-container {
+-             min-width: 300px;
+-             width: 90%;
+--            margin: var(--space-7) 0;
+-+            margin: 0;
+-+        }
+-+    }
+-+
+-+    .section__content-grid {
+-+        & .article__text {
+-+            font-size: 1.5rem;
+-+        }
+-+
+-+        & .div__grid-container {
+-+            gap: 4rem;
+-+        }
+-+    }
+-+
+-+    .section__content-when {
+-+        & .text-container {
+-+            width: 85%;
+-+            min-width: 300px;
+-+            align-self: center;
+-+            margin: 0;
+-+            font-size: 1.5rem;
+-+
+-+            & p {
+-+                margin-top: 1rem;
+-+            }
+-+        }
+-+
+-+        & .img__content {
+-+            display: none;
+-+        }
+-+    }
+-+
+-+    .section__content-times {
+-+        & .img__content {
+-+            display: none;
+-+        }
+-+
+-+        & .content-container {
+-+            min-width: 300px;
+-+            width: 85%;
+-+            margin: 0;
+-+        }
+-+
+-+        /*& .time{
+-+            font-size: 1.5rem;
+-+        }*/
+-+    }
+-+
+-+    .section__footer {
+-+        grid-template-columns: 1fr;
+-+        grid-template-rows: 1fr 1fr 1fr;
+-+        grid-template-areas:
+-+            "text"
+-+            "form"
+-+            "form";
+-+
+-+        & .footer__form {
+-+            margin-top: 2rem;
+-+            width: 85%;
+-+            min-width: 300px;
+-+        }
+-+        & footer {
+-+            display: none;
+-         }
+-     }
 - }
+-diff --git a/text b/text
+-index e9f78b6..df0b927 100644
+---- a/text
+-+++ b/text
+-@@ -1,265 +0,0 @@
+--diff --git a/code/index.html b/code/index.html
+--index 988f256..0d02495 100644
+----- a/code/index.html
+--+++ b/code/index.html
+--@@ -12,7 +12,7 @@
+--     </head>
+--     <body>
+--         <section class="section__hero">
+---            <button class="button__hero primary-button">Join the celebration</button>
+--+            <button class="button__hero primary-button"><a href="#form">Join the celebration</a></button>
+--             <h1 class="title">Ilya is<div class="emphasize">Eighteen</div></h1>
+--             <p class="text">And he decided to make a cool website to invite his friends to his birthday!</p>
+--         </section>
+--@@ -79,23 +79,25 @@
+--             <img class="img__content" src="../public/hero.png">
+--         </section>
+--         <section class="section__footer">
+---            <div>
+---                <h2>Got questions?</h2>
+---                <p>Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+--+            <div class="footer__text-container">
+--+                <h2 class="subtitle">Got questions?</h2>
+--+                <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+--             </div>
+---            <form>
+---                <ol>
+---                    <li>
+--+            <form class="footer__form" id="form">
+--+                <ol class="form__container">
+--+                    <li class="form__item">
+--                         <label for="name">Name</label>
+---                        <input type="text" name="name" id="name">
+--+                        <input class="form__input" type="text" name="name" id="name" required>
+--                     </li>
+---                    <li>
+--+                    <li class="form__item">
+--                         <label for="email">Email address</label>
+---                        <input type="email" name="email" id="email">
+--+                        <input class="form__input" type="email" name="email" id="email" required>
+--                     </li>
+---                    <li><textarea>Some text here</textarea></li>
+---                    <li>
+---                        <button type="button">Submit</button>
+--+                    <li class="form__item">
+--+                        <label for="comments">Comments</label>
+--+                        <textarea id="comments" class="form__input form__textarea"></textarea></li>
+--+                    <li class="form__item">
+--+                        <button type="reset" class="button__form">Submit</button>
+--                         <p class="subscript"></p>
+--                     </li>
+--                 </ol>
+--diff --git a/code/set_up.css b/code/set_up.css
+--index 3b0dbcd..3f8fe16 100644
+----- a/code/set_up.css
+--+++ b/code/set_up.css
+--@@ -3,6 +3,66 @@
+--     box-sizing: border-box;
+--     margin: 0;
+--     padding: 0;
+--+
+--+    & a {
+--+        text-decoration: none;
+--+        font-size: inherit;
+--+        color: inherit;
+--+    }
+--+}
+--+
+--+/* common styling */
+--+.button__hero {
+--+    min-height: 2.5em;
+--+    max-width: 12em;
+--+    width: 100%;
+--+
+--+    font-size: 1.2rem;
+--+    font-weight: 500;
+--+
+--+    background-color: var(--secondary-bg);
+--+    border: 1px solid black;
+--+    border-radius: 20px;
+--+
+--+    opacity: 1;
+--+    transition-property: opacity;
+--+    transition-duration: 0.2s;
+--+}
+--+.button__hero:hover {
+--+    opacity: 0.8;
+--+}
+--+
+--+.button__form {
+--+    min-height: 2.5em;
+--+    max-width: 6em;
+--+    width: 100%;
+--+
+--+    border: 2px solid black;
+--+    border-radius: 10px;
+--+    background-color: var(--secondary-bg);
+--+
+--+    transition-property: background-color;
+--+    transition-duration: 0.5s;
+--+}
+--+
+--+.button__form:hover {
+--+    background-color: #dbf267;
+--+}
+--+
+--+.title {
+--+    font-size: 9rem;
+--+    font-weight: 500;
+--+}
+--+.subtitle {
+--+    font-size: 3rem;
+--+    font-weight: 500;
+--+}
+--+.text {
+--+    font-size: 1.5rem;
+--+}
+--+.emphasize {
+--+    font-family: var(--font-emphasis);
+--+    font-style: italic;
+-- }
+-- 
+-- /* Variables */
+--diff --git a/code/styles.css b/code/styles.css
+--index a4284db..759e917 100644
+----- a/code/styles.css
+--+++ b/code/styles.css
+--@@ -14,34 +14,6 @@ img {
+--     border-radius: 20px;
+-- }
+-- 
+---/* common styling */
+---.primary-button {
+---    min-height: 2.5em;
+---    max-width: 12em;
+---    width: 100%;
+---
+---    font-size: 1.5rem;
+---    font-weight: 500;
+---
+---    background-color: var(--secondary-bg);
+---    border-radius: 20px;
+---}
+---.title {
+---    font-size: 9rem;
+---    font-weight: 500;
+---}
+---.subtitle {
+---    font-size: 3rem;
+---    font-weight: 500;
+---}
+---.text {
+---    font-size: 1.5rem;
+---}
+---.emphasize {
+---    font-family: var(--font-emphasis);
+---    font-style: italic;
+---}
+---
+-- /* styling per section */
+-- .section__hero {
+--     background-image: url("../public/hero.png");
+--@@ -226,7 +198,7 @@ img {
+--     justify-items: center;
+-- 
+--     position: relative;
+---    height: 90vh;
+--+    height: 100vh;
+-- 
+--     background-image: linear-gradient(
+--         to top,
+--@@ -237,20 +209,21 @@ img {
+--         var(--secondary-bg)
+--     );
+-- 
+---    & div {
+--+    & .footer__text-container {
+--         grid-area: text;
+--         width: 85%;
+--     }
+---
+---    & form {
+--+    & .footer__text {
+--+        margin-top: 1em;
+--+    }
+--+    & .footer__form {
+--         grid-area: form;
+--         width: 70%;
+-- 
+--         background-color: var(--secondary-bg);
+--         border-radius: 30px;
+-- 
+---        font-size: 0.9rem;
+---        & ol {
+--+        & .form__container {
+--             list-style-type: none;
+--             margin-top: var(--space-7);
+-- 
+--@@ -259,18 +232,37 @@ img {
+--             align-items: center;
+--             gap: var(--space-7);
+-- 
+---            & li {
+---                display: flex;
+---                flex-direction: column;
+---                width: 80%;
+---            }
+--+            appearance: none;
+--+            accent-color: var(--secondary-bg);
+--+        }
+-- 
+---            & input {
+---                border: 2px black solid;
+---                border-radius: 10px;
+---                height: 10ch;
+---                background-color: transparent;
+--+        .form__item {
+--+            & > * {
+--+                display: block;
+--+                width: 100%;
+--             }
+--+            width: 75%;
+--+        }
+--+
+--+        & .form__input {
+--+            border: 2px black solid;
+--+            border-radius: 10px;
+--+
+--+            padding: 0.5rem 0.2rem;
+--+            background-color: transparent;
+--+            transition: background-color 0.5s;
+--+
+--+            font-size: 0.8rem;
+--+            font-family: inherit;
+--+        }
+--+
+--+        & .form__input:focus {
+--+            background-color: #dbf267;
+--+        }
+--+
+--+        & .form__textarea {
+--+            height: 6rem;
+--+            resize: none;
+--         }
+--     }
+-- 
+--@@ -284,19 +276,4 @@ img {
+-- }
+-- 
+-- @media (max-width: 500px) {
+---    html {
+---        font-size: 10px;
+---    }
+---
+---    section {
+---        padding: var(--space-4) 0;
+---    }
+---
+---    .hero {
+---        height: 80vh;
+---    }
+---
+---    .showcase-pictures img.large-format {
+---        margin: var(--space-5) 0;
+---    }
+-- }
