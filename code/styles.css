@@ -5,7 +5,7 @@ html {
 
 section {
     height: auto;
-    padding: 4rem 0;
+    padding: clamp(4rem, 3vw + 3rem, 6rem) 0;
 }
 
 img {
@@ -19,16 +19,20 @@ img {
     background-image: url("../public/hero.png");
     background-size: cover;
     background-clip: border-box;
+
+    display: flex;
+    align-items: center;
     text-align: center;
-    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
 
     & .button__hero {
         margin-bottom: 1rem;
     }
     & .emphasize {
-        margin-top: -3rem;
+        margin-top: -2.5rem;
     }
-    & .text {
+    & p.text {
         margin-top: 2rem;
     }
 }
@@ -283,21 +287,9 @@ img {
 
 @media (max-width: 500px) {
     .section__hero {
-        height: 80vh;
-
-        & .button__hero {
-            font-size: 1.5rem;
-            margin-top: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        & .emphasize {
-            font-size: 6rem;
-            margin-top: -3rem;
-        }
-
-        & .title {
-            font-size: 6rem;
+        & .text {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
     }
 
