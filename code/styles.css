@@ -14,8 +14,14 @@ img {
     border-radius: 20px;
 }
 
-/* styling per section */
+.div__hero-wrapper {
+    container: hero / inline-size;
+}
+
 .section__hero {
+    width: 100vw;
+    height: 90vh;
+
     background-image: url("../public/hero.png");
     background-size: cover;
     background-clip: border-box;
@@ -25,15 +31,23 @@ img {
     text-align: center;
     justify-content: center;
     flex-direction: column;
+}
 
+@container hero {
     & .button__hero {
-        margin-bottom: var(s-base);
+        margin-bottom: var(--s-base);
     }
     & .emphasize {
         margin-top: calc((var(--s-xl) + 0.5rem) * -1);
     }
     & p.text {
         margin-top: var(--s-xl);
+    }
+}
+
+@container hero (width < 400px) {
+    .section__hero{
+        height: 70vh;
     }
 }
 
@@ -285,7 +299,7 @@ img {
     }
 }
 
-@media (max-width: 500px) {
+/*@media (max-width: 500px) {
     .section__hero {
         & .text {
             margin-left: 0.5rem;
@@ -373,4 +387,4 @@ img {
             display: none;
         }
     }
-}
+}*/
