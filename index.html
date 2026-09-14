@@ -79,32 +79,31 @@
             <img class="img__content" src="./public/hero.png">
         </section>
         <section class="section__footer">
-            <div class="footer__text-container small-text">
-                <h2 class="subtitle">Got questions?</h2>
-                <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+            <div class="flex-wrapper">
+                <div class="footer__text-container small-text">
+                    <h2 class="subtitle">Got questions?</h2>
+                    <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+                </div>
+                <form class="footer__form" id="form">
+                    <ol class="form__container">
+                        <li class="form__item">
+                            <label for="name">Name</label>
+                            <input class="form__input" type="text" name="name" id="name" required>
+                        </li>
+                        <li class="form__item">
+                            <label for="email">Email address</label>
+                            <input class="form__input" type="email" name="email" id="email" required>
+                        </li>
+                        <li class="form__item">
+                            <label for="comments">Comments</label>
+                            <textarea id="comments" class="form__input form__textarea"></textarea></li>
+                        <li class="form__item">
+                            <button type="reset" class="button__form">Submit</button>
+                            <p class="subscript"></p>
+                        </li>
+                    </ol>
+                </form>
             </div>
-            <form class="footer__form" id="form">
-                <ol class="form__container">
-                    <li class="form__item">
-                        <label for="name">Name</label>
-                        <input class="form__input" type="text" name="name" id="name" required>
-                    </li>
-                    <li class="form__item">
-                        <label for="email">Email address</label>
-                        <input class="form__input" type="email" name="email" id="email" required>
-                    </li>
-                    <li class="form__item">
-                        <label for="comments">Comments</label>
-                        <textarea id="comments" class="form__input form__textarea"></textarea></li>
-                    <li class="form__item">
-                        <button type="reset" class="button__form">Submit</button>
-                        <p class="subscript"></p>
-                    </li>
-                </ol>
-            </form>
-            <footer>
-                some stuff here xD
-            </footer>
         </section>
     </body>
 </html>
