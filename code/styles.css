@@ -1,10 +1,8 @@
-html {
-    color: var(--primary-text, black);
-    font-size: clamp(14px, 2vw, 18px);
-}
+/* ===== Global Styles ====== */
 
 section {
-    padding: clamp(4rem, 3vw + 3rem, 6rem) 0;
+    font-family: Lora;
+    padding: var(--s-2xl-3xl) 0;
 }
 
 img {
@@ -13,7 +11,42 @@ img {
     border-radius: 20px;
 }
 
-.section__hero {
+.button__hero {
+    max-width: fit-content;
+    width: 100%;
+    padding: 0.8rem 1rem;
+
+    font-weight: 400;
+    background-color: var(--secondary-bg);
+    border: 1px solid black;
+    border-radius: 20px;
+
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+}
+.button__hero:hover {
+    opacity: 0.8;
+}
+
+.button__form {
+    min-height: 2.5em;
+    max-width: 6em;
+    width: 100%;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: var(--secondary-bg);
+
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+.button__form:hover {
+    background-color: #dbf267;
+}
+
+/* ===== hero section ====== */
+.hero {
     width: 100vw;
     height: 95vh;
 
@@ -27,21 +60,33 @@ img {
     justify-content: center;
     flex-direction: column;
 
-    container: hero;
+    container: hero / inline-size;
+    @container hero (width < 1300px){
+        p {
+            max-width: 800px;
+            margin: 0 var(--s-xs);
+        }
+    }
     @container hero {
-        .button__hero {
-            margin-bottom: var(--s-base);
+        button,
+        p {
+            font-size: var(--fs-3);
         }
-        .emphasize {
-            margin-top: calc((var(--s-xl) + 0.5rem) * -1);
-        }
-        .text {
-            margin-top: var(--s-xl);
+        h1 {
+            font-size: var(--fs-8);
+            font-weight: 400;
+            margin-top: var(--s-m);
+            & div{
+                font-style: italic;
+                margin-top: calc(var(--s-m) * -1); 
+                margin-bottom: var(--s-m);
+            }
         }
     }
 }
 
-.section__pictures {
+/* ===== 2nd section ====== */
+.content-pictures {
     background-image: linear-gradient(
         var(--primary-bg) 0%,
         var(--secondary-bg) 90%
@@ -65,7 +110,8 @@ img {
     }
 }
 
-.section__content-text {
+/* ===== 3rd section ====== */
+.content-text {
     background-image: linear-gradient(
         to top,
         var(--primary-bg),
@@ -81,7 +127,7 @@ img {
 
     /*both have to be the same size for spacing*/
     & .img__content,
-    & .section__text-container {
+    & .text-container {
         width: clamp(400px, 45%, 800px);
     }
 
@@ -92,14 +138,15 @@ img {
         }
     }
     @container content-text (width < 500px) {
-        & .section__text-container {
+        & .text-container {
             min-width: 300px;
             width: 80%;
         }
     }
 }
 
-.section__content-grid {
+/* ===== 4th section ====== */
+.content-grid {
     background-image: linear-gradient(
         var(--primary-bg) 0px 2px,
         transparent 4px
@@ -166,7 +213,8 @@ img {
     }
 }
 
-.section__content-when {
+/* ===== 5th section ====== */
+.content-when {
     background-color: var(--bg-lighter-2);
 
     display: flex;
@@ -196,7 +244,8 @@ img {
     }
 }
 
-.section__content-times {
+/* ===== 6th section ====== */
+.content-times {
     background-image: linear-gradient(
         var(--primary-bg),
         90%,
@@ -250,7 +299,7 @@ img {
     }
 }
 
-.section__footer {
+.footer {
     & .flex-wrapper {
         display: flex;
         justify-content: center;

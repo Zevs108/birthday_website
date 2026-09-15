@@ -3,3 +3,4 @@ LICENSE
 *.sh
 text
 .zed
+git_diff
