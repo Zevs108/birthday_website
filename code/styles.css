@@ -95,15 +95,16 @@ img {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--s-lg);
+    gap: var(--s-l-xl);
 
-    & .img__content {
-        width: clamp(400px, 45%, 800px);
+    & img {
+        max-width: 800px;
+        width: 45%;
     }
 
     container: pictures / inline-size;
-    @container pictures (width < 500px) {
-        & .img__content {
+    @container pictures (width < 800px) {
+        & img {
             min-width: 300px;
             width: 80%;
         }
@@ -123,22 +124,33 @@ img {
     justify-content: center;
     align-items: flex-end;
     flex-wrap: wrap;
-    gap: var(--s-lg);
-
-    /*both have to be the same size for spacing*/
-    & .img__content,
-    & .text-container {
-        width: clamp(400px, 45%, 800px);
-    }
+    gap: var(--s-l-xl);
 
     container: content-text / inline-size;
-    @container content-text (width < 850px) {
-        & .img__content {
-            display: none;
+    @container content-text{
+        h2{
+            font-size: var(--fs-5);
+            font-weight: 500;
+            & div{
+                font-style: italic;
+                margin-bottom: var(--s-m);
+            }
+        }
+        p {
+            font-size: var(--fs-3);
+        }
+        
+        img,
+        .text-container {
+            max-width: 800px;
+            width: 45%
         }
     }
-    @container content-text (width < 500px) {
-        & .text-container {
+    @container content-text (width < 800px) {
+        img {
+            display: none;
+        }
+        .text-container {
             min-width: 300px;
             width: 80%;
         }
