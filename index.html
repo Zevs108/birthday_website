@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Happy Birthday Ilya!</title>
-        <link href="./code/set_up.css" rel="stylesheet">
+        <link href="./code/init.css" rel="stylesheet">
         <link href="./code/styles.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -75,31 +75,30 @@
             <img src="./public/hero.png">
         </section>
         <section class="footer">
-            <div class="flex-wrapper">
-                <div class="footer__text-container small-text">
-                    <h2 class="subtitle">Got questions?</h2>
-                    <p class="footer__text">Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
-                </div>
-                <form class="footer__form" id="form">
-                    <ol class="form__container">
-                        <li class="form__item">
+            <div class="text-container">
+                <h2>Got questions?</h2>
+                <p>Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
+            </div>
+            <div class="form-container">
+                <form>
+                    <ol class="container">
+                        <li>
                             <label for="name">Name</label>
-                            <input class="form__input" type="text" name="name" id="name" required>
+                            <input type="text" name="name" id="name" required>
                         </li>
-                        <li class="form__item">
+                        <li>
                             <label for="email">Email address</label>
-                            <input class="form__input" type="email" name="email" id="email" required>
+                            <input type="email" name="email" id="email" required>
                         </li>
-                        <li class="form__item">
+                        <li>
                             <label for="comments">Comments</label>
-                            <textarea id="comments" class="form__input form__textarea"></textarea></li>
-                        <li class="form__item">
-                            <button type="reset" class="button__form">Submit</button>
-                            <p class="subscript"></p>
+                            <textarea id="comments"></textarea></li>
+                        <li>
+                            <button type="reset">Submit</button>
                         </li>
                     </ol>
                 </form>
             </div>
-        </section>
+    </section>
     </body>
 </html>
