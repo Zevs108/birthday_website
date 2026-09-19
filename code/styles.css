@@ -1,3 +1,117 @@
+/* CSS rule reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    & a {
+        text-decoration: none;
+        font-size: inherit;
+        color: inherit;
+    }
+}
+
+/* Variables */
+:root {
+    --primary-bg: #f1f1eb;
+    --secondary-bg: #e6ff6d;
+    --primary-text: #23270d;
+
+    /* ===== Shadow colors ===== */
+    --shadow-color-light: rgb(35 39 13 / 0.08);
+    --shadow-color-soft: rgb(35 39 13 / 0.15);
+    --shadow-color-medium: rgb(35 39 13 / 0.25);
+    --shadow-color-strong: rgb(35 39 13 / 0.4);
+
+    /* ===== Background scale ===== */
+    --bg-lighter-1: #f6f6f1;
+    --bg-lighter-2: #fafaf7;
+    --bg-lighter-3: #ffffff;
+    --bg-darker-1: #e2e2d6;
+    --bg-darker-2: #cfcfc0;
+
+    /* ===== Secondary ===== */
+    --secondary-bg-light: #edff96;
+    --secondary-bg-hover: #dbf267;
+    --secondary-bg-dark: #c2e64f;   
+    --secondary-bg-darker: #a3c93a;  
+
+    /* ===== Text scale ===== */
+    --primary-text-light: #4a5220;   
+    --text-muted: #6e7a3a;          
+    --text-disabled: #a3ad85;        
+
+    /* ===== Borders / dividers ===== */
+    --border-color: #d6d6c8;
+
+    /* ===== Semantic (optional, kept low-saturation to stay in family) ===== */
+    --color-success: #6a9d4f;
+    --color-error: #b5563f;
+
+    /*--s-xs: 0.25rem;
+    --s-sm: 0.5rem;
+    --s-md: 0.75rem;
+    --s-base: 1rem;
+    --s-lg: 1.5rem;
+    --s-xl: 2rem;
+    --s-2xl: 3rem;
+    --s-3xl: 4rem;
+    --s-4xl: 6rem;*/
+
+    /*--fs-sm: clamp(0.87rem, 0.14vi + 0.83rem, 1rem);
+    --fs-base: clamp(1.13rem, 0.38vi + 1.03rem, 1.5rem);
+    --fs-md: clamp(1.46rem, 0.8vi + 1.26rem, 2.25rem);
+    --fs-lg: clamp(1.9rem, 1.49vi + 1.53rem, 3.38rem);
+    --fs-xl: clamp(2.47rem, 2.62vi + 1.82rem, 5.06rem);
+    --fs-xxl: clamp(3.21rem, 4.44vi + 2.1rem, 7.59rem);
+    --fs-xxxl: clamp(4.18rem, 7.3vi + 2.35rem, 11.39rem);*/
+
+    --fs--1: clamp(0.8333rem, 0.8308rem + 0.011vw, 0.844rem);
+    --fs-0: clamp(1rem, 0.9697rem + 0.1294vw, 1.125rem);
+    --fs-1: clamp(1.2rem, 1.1273rem + 0.3103vw, 1.4996rem);
+    --fs-2: clamp(1.44rem, 1.3043rem + 0.5789vw, 1.999rem);
+    --fs-3: clamp(1.728rem, 1.5007rem + 0.97vw, 2.6647rem);
+    --fs-4: clamp(2.0736rem, 1.7148rem + 1.531vw, 3.552rem);
+    --fs-5: clamp(2.4883rem, 1.9431rem + 2.3265vw, 4.7348rem);
+    --fs-6: clamp(2.986rem, 2.1788rem + 3.4439vw, 6.3115rem);
+    --fs-7: clamp(3.5832rem, 2.4108rem + 5.002vw, 8.4132rem);
+    --fs-8: clamp(4.2998rem, 2.6214rem + 7.1612vw, 11.2149rem);
+
+    --s-3xs: clamp(0.25rem, 0.2351rem + 0.0645vw, 0.3125rem);
+    --s-2xs: clamp(0.5rem, 0.4851rem + 0.0645vw, 0.5625rem);
+    --s-xs: clamp(0.75rem, 0.7202rem + 0.129vw, 0.875rem);
+    --s-s: clamp(1rem, 0.9702rem + 0.129vw, 1.125rem);
+    --s-m: clamp(1.5rem, 1.4552rem + 0.1935vw, 1.6875rem);
+    --s-l: clamp(2rem, 1.9403rem + 0.2581vw, 2.25rem);
+    --s-xl: clamp(3rem, 2.9105rem + 0.3871vw, 3.375rem);
+    --s-2xl: clamp(4rem, 3.8806rem + 0.5161vw, 4.5rem);
+    --s-3xl: clamp(6rem, 5.821rem + 0.7742vw, 6.75rem);
+
+    /* One-up pairs */
+    --s-3xs-2xs: clamp(0.25rem, 0.1754rem + 0.3226vw, 0.5625rem);
+    --s-2xs-xs: clamp(0.5rem, 0.4105rem + 0.3871vw, 0.875rem);
+    --s-xs-s: clamp(0.75rem, 0.6605rem + 0.3871vw, 1.125rem);
+    --s-s-m: clamp(1rem, 0.8359rem + 0.7097vw, 1.6875rem);
+    --s-m-l: clamp(1.5rem, 1.321rem + 0.7742vw, 2.25rem);
+    --s-l-xl: clamp(2rem, 1.6718rem + 1.4194vw, 3.375rem);
+    --s-xl-2xl: clamp(3rem, 2.6419rem + 1.5484vw, 4.5rem);
+    --s-2xl-3xl: clamp(4rem, 3.3435rem + 2.8387vw, 6.75rem);
+}
+
+/*imported fonts*/
+@font-face {
+    font-family: "Lora";
+    src: url("../public/fonts/Lora-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lora";
+    src: url("../public/fonts/Lora-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: italic;
+}
+
 /* ===== Global Styles ====== */
 
 section {
