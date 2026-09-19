@@ -4,11 +4,13 @@
         <title>Happy Birthday Ilya!</title>
         <link href="./code/init.css" rel="stylesheet">
         <link href="./code/styles.css" rel="stylesheet">
+        <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
+        <script src="./code/script.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <section class="hero">
-            <button class="primary-button"><a href="#form">Join the celebration</a></button>
+            <button class="hero-button"><span>Join the celebration</span></button>
             <h1>Ilya is<div>Eighteen</div></h1>
             <p>And he decided to make a cool website to invite his friends to his birthday!</p>
         </section>
@@ -80,7 +82,7 @@
                 <p>Need help with the link? Can’t find your invite? Having technical trouble or just need to check in about the schedule? Drop your note in the form—the birthday crew’s got you covered.</p>
             </div>
             <div class="form-container">
-                <form>
+                <form id="form">
                     <ol class="container">
                         <li>
                             <label for="name">Name</label>
